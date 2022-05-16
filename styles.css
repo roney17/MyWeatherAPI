@@ -1,15 +1,25 @@
 body{
-    background-color: white;
+    background-color: #85FFBD;
+background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
     color: black;
 }
-.weatherCards{
+/* .weatherCards{
     display: none;
-}
+} */
 .city-div{
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+.weather-cards{
     display: block;
     align-items: center;
     text-align: center;
 }
 .city-div input{
     margin: auto;
+}
+.col{
+    margin: auto;
+    text-align: center;
 }

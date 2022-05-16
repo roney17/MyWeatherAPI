@@ -6,23 +6,23 @@
     </head>
     <title>My Weather API</title>
     <body>
-        <center><h1>My Weather API</h1></center><br><br>
+        <br><br>
+        <center><h1>RIParoney's Weather API</h1></center><br>
         <div class="city-div">
-            <input class="input" type="text" name="" placeholder="Enter city name" id="city-input">
+            <input class="input" type="text" name="" placeholder="Enter city name or zip code" id="city-input" style="width: 18rem;">
         </div>
         <br><br>
-        <div class="weatherCards" >
+        <div class="weatherCards" id="weather-cards">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 " >
                     <div class="col" >
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c"></rect>
-                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
+                            <br>
+                            <h5 class="card-title" id="title">City</h5>
                             <div class="card-body">
-                                <p class="city">test words</p>
+                                <h2 id="temp">Temperature: </h2><br>
+                                <img id="icon">
+                                <p id="feelsLike">Feels Like: </p>
                             </div>
                         </div>
                     </div>

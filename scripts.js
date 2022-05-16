@@ -1,4 +1,8 @@
 let input = document.getElementById('city-input');
+let cityName = document.getElementById('title');
+let feelsLike = document.getElementById('feelsLike');
+let temp = document.getElementById('temp');
+let img = document.getElementById('icon');
 const weatherAPI = {
     key: "464c2375e0a4473bafd195446221205",
     url: "http://api.weatherapi.com/v1/current.json?"
@@ -6,17 +10,32 @@ const weatherAPI = {
 
 input.addEventListener('keypress', (event) => {
     if (event.keyCode == 13){
-        console.log(input.value)
-        console.log(`${weatherAPI.url}key=${weatherAPI.key}&q=${input.value}`)
+        // document.getElementsByClassName('weather-cards').setAttribute('display', 'block');
+        let value = input.value;
+        fetchWeather(value);
+
     }
 })
 
-function fetchWeather(city){ 
+function fetchWeather(value){ 
+    console.log(value);
     fetch(`${weatherAPI.url}key=${weatherAPI.key}&q=${input.value}`)
-        .then (current => {
-            return current.json();
-    })
-}
+        .then (response => {
+            return weather = response.json();
+        })
+        .then(data => {
+            console.log(data);
+            cityName.innerHTML = `${data.location.name}`;
+            feelsLike.innerHTML = `Feels Like ${data.current.feelslike_f}`;
+            temp.innerHTML = `${data.current.temp_f}`;
+            icon.src = `${data.current.condition.icon}`;
+            
+
+
+            
+        }).then ();
+    }
+
 
 // console.log(input);
 
