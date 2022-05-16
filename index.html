@@ -1,14 +1,20 @@
 <html>
     <head>
         <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+
     </head>
     <title>My Weather API</title>
     <body>
         <center><h1>My Weather API</h1></center><br><br>
-        <div class="weatherCards">
+        <div class="city-div">
+            <input class="input" type="text" name="" placeholder="Enter city name" id="city-input">
+        </div>
+        <br><br>
+        <div class="weatherCards" >
             <div class="container">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="col">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 " >
+                    <div class="col" >
                         <div class="card shadow-sm">
                             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
                             <title>Placeholder</title>
@@ -16,15 +22,33 @@
                             <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
                         </svg>
                             <div class="card-body">
-                                <p>test words</p>
+                                <p class="city">test words</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
 
 
         <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="scripts.js"></script>
+        <!-- <script>
+            const http = require('http');
+
+            http.get(
+                "http://api.weatherapi.com/v1/current.json?key=464c2375e0a4473bafd195446221205&q=84604&aqi=no", (response)=>{
+                let data = '';
+                response.on('data', chunk => data += chunk)
+
+                response.on('end', () => {
+                    console.log(JSON.parse(data));
+                });
+
+            }).on('error', (err) => {
+                console.log(err);
+            })
+        </script> -->
     </body>
 </html>
