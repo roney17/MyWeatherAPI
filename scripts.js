@@ -10,7 +10,6 @@ const weatherAPI = {
 
 input.addEventListener('keypress', (event) => {
     if (event.keyCode == 13){
-        // document.getElementsByClassName('weather-cards').setAttribute('display', 'block');
         let value = input.value;
         fetchWeather(value);
 
@@ -29,6 +28,7 @@ function fetchWeather(value){
             feelsLike.innerHTML = `Feels Like ${data.current.feelslike_f}`;
             temp.innerHTML = `${data.current.temp_f}`;
             icon.src = `${data.current.condition.icon}`;
+            document.getElementById('weather-cards').style.display = 'block';
             
 
 
