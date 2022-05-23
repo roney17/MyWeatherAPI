@@ -9,15 +9,18 @@
         <br><br>
         <center><h1>RIParoney's Weather API</h1></center><br>
         <div class="city-div">
-            <input class="input" type="text" name="" placeholder="Enter city name or zip code" id="city-input" style="width: 18rem;">
+            <input class="input" type="text" name="" placeholder="Enter city name or zip code" id="city-input" style="width: 18rem;"><br>
         </div>
         <br><br>
         <div class="weatherCards" id="weather-cards">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 " >
                     <div class="col" >
+                        <div class="btn-group" role="group" aria-label="Time">
+                            <button type="button" class="btn btn-primary" id="today-btn" onclick="toggleToday()">Today</button>
+                            <button type="button" class="btn btn-secondary" id="forecast-btn" onclick="toggleForecast()">Forecast</button>
+                          </div>
                         <div class="card shadow-sm">
-                            <br>
                             <h5 class="card-title" id="title">City</h5>
                             <div class="card-body">
                                 <h2 id="temp">Temperature: </h2><br>

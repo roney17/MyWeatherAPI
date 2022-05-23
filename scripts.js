@@ -3,6 +3,9 @@ let cityName = document.getElementById('title');
 let feelsLike = document.getElementById('feelsLike');
 let temp = document.getElementById('temp');
 let img = document.getElementById('icon');
+let todayBtn = document.getElementById('today-btn');
+let forecastBtn = document.getElementById('forecast-btn');
+
 const weatherAPI = {
     key: "464c2375e0a4473bafd195446221205",
     url: "http://api.weatherapi.com/v1/current.json?"
@@ -36,7 +39,14 @@ function fetchWeather(value){
         }).then ();
     }
 
-
+    function toggleToday() {
+        todayBtn.classList.toggle("btn-secondary");
+        console.log("hello;")
+      };
+      function toggleForecast() {
+        forecastBtn.classList.toggle("btn-secondary");
+        console.log("hello;")
+      };
 // console.log(input);
 
 
