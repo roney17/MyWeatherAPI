@@ -28,8 +28,8 @@ function fetchWeather(value){
         .then(data => {
             console.log(data);
             cityName.innerHTML = `${data.location.name}`;
-            feelsLike.innerHTML = `Feels Like ${data.current.feelslike_f}`;
-            temp.innerHTML = `${data.current.temp_f}`;
+            feelsLike.innerHTML = `Feels Like ${data.current.feelslike_f} F `;
+            temp.innerHTML = `${data.current.temp_f} F`;
             icon.src = `${data.current.condition.icon}`;
             document.getElementById('weather-cards').style.display = 'block';
             
