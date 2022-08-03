@@ -4,15 +4,15 @@ body{
     color: black;
 }
 .weatherCards{
-    display: block;
+    display: none;
 }
 .city-div{
-    display: block;
+    /* display: block; */
     align-items: center;
     text-align: center;
 }
 .weather-cards{
-    display: block;
+    display: hidden;
     align-items: center;
     text-align: center;
 }

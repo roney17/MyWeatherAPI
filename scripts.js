@@ -5,6 +5,7 @@ let temp = document.getElementById('temp');
 let img = document.getElementById('icon');
 let todayBtn = document.getElementById('today-btn');
 let forecastBtn = document.getElementById('forecast-btn');
+let weatherCards = document.getElementById('weather-cards');
 
 const weatherAPI = {
     key: "464c2375e0a4473bafd195446221205",
@@ -15,7 +16,7 @@ input.addEventListener('keypress', (event) => {
     if (event.keyCode == 13){
         let value = input.value;
         fetchWeather(value);
-
+        weatherCards.style.display = 'block';
     }
 })
 
@@ -39,14 +40,33 @@ function fetchWeather(value){
         }).then ();
     }
 
-    function toggleToday() {
-        todayBtn.classList.toggle("btn-secondary");
-        console.log("hello;")
-      };
-      function toggleForecast() {
-        forecastBtn.classList.toggle("btn-secondary");
-        console.log("hello;")
-      };
+    //declare a function to toggle between today and forecast
+    function toggle() {
+        if (todayBtn.classList.contains('active')) {
+            forecastBtn.classList.add('active');
+            todayBtn.classList.add('btn-primary');
+            forecastBtn.classList.add('btn-secondary');
+            todayBtn.classList.remove('active', 'btn-secondary');
+            document.getElementById('today').style.display = 'none';
+            document.getElementById('forecast').style.display = 'block';
+        } else {
+            forecastBtn.classList.remove('active', 'btn-secondary');
+            todayBtn.classList.add('active');
+            forecastBtn.classList.add('btn-primary');
+            todayBtn.classList.add('btn-secondary');
+            document.getElementById('today').style.display = 'block';
+            document.getElementById('forecast').style.display = 'none';
+        }
+    }
+
+    // function toggleToday() {
+    //     todayBtn.classList.toggle("btn-secondary");
+    //     console.log("hello;")
+    //   };
+    //   function toggleForecast() {
+    //     forecastBtn.classList.toggle("btn-secondary");
+    //     console.log("hello;")
+    //   };
 // console.log(input);
 
 

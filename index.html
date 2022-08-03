@@ -18,15 +18,15 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 " >
                     <div class="col" >
                         <div class="btn-group" role="group" aria-label="Time">
-                            <button type="button" class="btn btn-primary" id="today-btn" onclick="toggleToday()">Today</button>
-                            <button type="button" class="btn btn-secondary" id="forecast-btn" onclick="toggleForecast()">Forecast</button>
+                            <button type="button" class="btn btn-primary" id="today-btn" onclick="toggle()">Today</button>
+                            <button type="button" class="btn btn-secondary" id="forecast-btn" onclick="toggle()">Forecast</button>
                           </div>
                         <div class="card shadow-sm"><br>
-                            <h5 class="card-title" id="title">City</h5>
+                            <h5 class="card-title" id="title"></h5>
                             <div class="card-body">
-                                <h2 id="temp">Temperature: </h2>
+                                <h2 id="temp"></h2>
                                 <img id="icon">
-                                <p id="feelsLike">Feels Like: </p>
+                                <p id="feelsLike"></p>
                             </div>
                         </div>
                     </div>
