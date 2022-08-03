@@ -1,5 +1,6 @@
 let input = document.getElementById('city-input');
 let cityName = document.getElementById('title');
+let date = document.getElementById('time');
 let feelsLike = document.getElementById('feelsLike');
 let temp = document.getElementById('temp');
 let img = document.getElementById('icon');
@@ -9,7 +10,8 @@ let weatherCards = document.getElementById('weather-cards');
 
 const weatherAPI = {
     key: "464c2375e0a4473bafd195446221205",
-    url: "http://api.weatherapi.com/v1/current.json?"
+    url: "http://api.weatherapi.com/v1/current.json?",
+    forecast: "http://api.weatherapi.com/v1/forecast.json?"
 }
 
 input.addEventListener('keypress', (event) => {
@@ -21,7 +23,6 @@ input.addEventListener('keypress', (event) => {
 })
 
 function fetchWeather(value){ 
-    console.log(value);
     fetch(`${weatherAPI.url}key=${weatherAPI.key}&q=${input.value}`)
         .then (response => {
             return weather = response.json();
@@ -29,14 +30,11 @@ function fetchWeather(value){
         .then(data => {
             console.log(data);
             cityName.innerHTML = `${data.location.name}`;
+            date.innerHTML = `${data.location.localtime_epoch}`;
             feelsLike.innerHTML = `Feels Like ${data.current.feelslike_f} F `;
             temp.innerHTML = `${data.current.temp_f} F`;
             icon.src = `${data.current.condition.icon}`;
             document.getElementById('weather-cards').style.display = 'block';
-            
-
-
-            
         }).then ();
     }
 
@@ -47,18 +45,42 @@ function fetchWeather(value){
             todayBtn.classList.add('btn-primary');
             forecastBtn.classList.add('btn-secondary');
             todayBtn.classList.remove('active', 'btn-secondary');
-            document.getElementById('today').style.display = 'none';
-            document.getElementById('forecast').style.display = 'block';
         } else {
             forecastBtn.classList.remove('active', 'btn-secondary');
             todayBtn.classList.add('active');
             forecastBtn.classList.add('btn-primary');
             todayBtn.classList.add('btn-secondary');
-            document.getElementById('today').style.display = 'block';
-            document.getElementById('forecast').style.display = 'none';
+            forecast();
         }
     }
+    //declare a function to fetch the forecast
+    function forecast() {
+        fetch(`${weatherAPI.forecast}key=${weatherAPI.key}&q=${input.value}`)
 
+            .then (response => {
+                return weather = response.json();
+            }
+            )
+            .then(data => {
+                console.log(data);
+                
+                }
+            ).then ();
+    }
+    // function forecast(value){ 
+    //     fetch(`${weatherAPI.forecast}key=${weatherAPI.key}&q=provo`)
+    //         .then (response => {
+    //             return forecast = response.json();
+    //             console.log(forecast);
+    //         })
+            // .then(data => {
+            //     console.log(data);
+            //     cityName.innerHTML = `${data.location.name}`;
+            //     feelsLike.innerHTML = `Feels Like ${data.current.feelslike_f} F `;
+            //     temp.innerHTML = `${data.current.temp_f} F`;
+            //     icon.src = `${data.current.condition.icon}`;
+            //     document.getElementById('weather-cards').style.display = 'block';
+            // }).then ();
     // function toggleToday() {
     //     todayBtn.classList.toggle("btn-secondary");
     //     console.log("hello;")
