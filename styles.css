@@ -23,3 +23,7 @@ body{
     margin: auto;
     text-align: center;
 }
+#icon{
+    width: 100px;
+    height: 100px;
+}
