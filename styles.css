@@ -22,6 +22,12 @@ body{
 .night {
     background-image: url(img/night.jpg);
 }
+.white{
+    color: white;
+}
+.black{
+    color: black;
+}
 .weatherCards{
     /* display: none; */
 }

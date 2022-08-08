@@ -43,6 +43,9 @@ function fetchWeather(value){
             } 
             if (data.current.is_day == '0') {
                 document.body.className = 'night';
+                document.getElementById('intro').className = 'white';
+            } else {
+                document.getElementById('intro').className = 'black';
             }
             cityName.innerHTML = `${data.location.name}`;
             //splice the date to get the time
