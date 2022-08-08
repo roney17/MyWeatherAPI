@@ -30,7 +30,11 @@ function fetchWeather(value){
         .then(data => {
             console.log(data);
             cityName.innerHTML = `${data.location.name}`;
-            date.innerHTML = `${data.location.localtime_epoch}`;
+            //splice the date to get the time
+            let currentTime = data.location.localtime.split(' ');
+            currentTime = currentTime[1];
+            date.innerHTML = `${currentTime}`;
+            // date.innerHTML = `${data.location.localtime}`;
             feelsLike.innerHTML = `Feels Like ${data.current.feelslike_f} F `;
             temp.innerHTML = `${data.current.temp_f} F`;
             icon.src = `${data.current.condition.icon}`;
