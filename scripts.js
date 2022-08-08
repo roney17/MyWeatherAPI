@@ -29,6 +29,21 @@ function fetchWeather(value){
         })
         .then(data => {
             console.log(data);
+            let currentCondition = data.current.condition.text;
+            currentCondition = currentCondition.toLowerCase();
+            console.log(currentCondition);
+            if (currentCondition.includes('rain')) {
+                document.body.className = 'rainy';
+            } else if (currentCondition.includes('sun') || currentCondition.includes('clear')) {
+                document.body.className = 'sunny';
+            } else if (currentCondition.includes('cloud') || currentCondition.includes('overcast')) {
+                document.body.className = 'cloudy';
+            } else if (currentCondition.includes('lightning')) {
+                document.body.className = 'lightning';
+            } 
+            if (data.current.is_day == '0') {
+                document.body.className = 'night';
+            }
             cityName.innerHTML = `${data.location.name}`;
             //splice the date to get the time
             let currentTime = data.location.localtime.split(' ');
@@ -39,6 +54,7 @@ function fetchWeather(value){
             temp.innerHTML = `${data.current.temp_f} F`;
             icon.src = `${data.current.condition.icon}`;
             document.getElementById('weather-cards').style.display = 'block';
+            
         }).then ();
     }
 
