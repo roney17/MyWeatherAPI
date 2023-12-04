@@ -13,7 +13,11 @@ const weatherAPI = {
     url: "http://api.weatherapi.com/v1/current.json?",
     forecast: "http://api.weatherapi.com/v1/forecast.json?"
 }
-
+window.onload = function () {
+    const defaultValue = "Provo";
+    input.value = defaultValue; // Set the input value programmatically
+    fetchWeather(defaultValue);
+}
 input.addEventListener('keypress', (event) => {
     if (event.keyCode == 13){
         let value = input.value;
@@ -23,7 +27,8 @@ input.addEventListener('keypress', (event) => {
 })
 
 function fetchWeather(value){ 
-    fetch(`${weatherAPI.url}key=${weatherAPI.key}&q=${input.value}`)
+    const queryValue = value || input.value;
+    fetch(`${weatherAPI.url}key=${weatherAPI.key}&q=${queryValue}`)
         .then (response => {
             return weather = response.json();
         })
@@ -90,6 +95,8 @@ function fetchWeather(value){
                 }
             ).then ();
     }
+
+
     // function forecast(value){ 
     //     fetch(`${weatherAPI.forecast}key=${weatherAPI.key}&q=provo`)
     //         .then (response => {
